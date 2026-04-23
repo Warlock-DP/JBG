@@ -59,6 +59,10 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
+h1, h2 {
+  font-family: var(--font-heading);
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -431,6 +435,35 @@ ul { list-style: none; }
 
 .overview-card__icon {
   margin-bottom: 1.5rem;
+}
+
+.overview-card__icon i {
+  font-size: 2.5rem;
+  background: var(--c-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Remix Icon general styles */
+.ri-icon {
+  font-size: 2rem;
+  color: var(--c-red);
+}
+
+.ri-icon--gradient {
+  background: var(--c-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ri-icon--lg {
+  font-size: 2.5rem;
+}
+
+.ri-icon--xl {
+  font-size: 3rem;
 }
 
 .overview-card h3 {
