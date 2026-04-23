@@ -3599,13 +3599,13 @@ h1, h2 {
 
 .pattern-preview--grid {
   background-image:
-    linear-gradient(rgba(255,90,31,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,90,31,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,90,31,0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,90,31,0.4) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 
 .pattern-preview--dots {
-  background-image: radial-gradient(rgba(255,90,31,0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255,90,31,0.4) 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
@@ -3614,8 +3614,8 @@ h1, h2 {
     45deg,
     transparent,
     transparent 8px,
-    rgba(255,90,31,0.07) 8px,
-    rgba(255,90,31,0.07) 10px
+    rgba(255,90,31,0.3) 8px,
+    rgba(255,90,31,0.3) 10px
   );
 }
 
@@ -3628,8 +3628,8 @@ h1, h2 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.2'/%3E%3C/svg%3E");
+  opacity: 0.8;
 }
 
 .pattern-card h4 {
@@ -3677,7 +3677,7 @@ h1, h2 {
 
 .grid-col {
   height: 60px;
-  background: rgba(255,90,31,0.12);
+  background: rgba(255,90,31,0.3);
   border-radius: 3px;
 }
 
@@ -3806,9 +3806,11 @@ h1, h2 {
 .chart-bar-group {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
   flex: 1;
+  height: 100%;
 }
 
 .chart-bar {
