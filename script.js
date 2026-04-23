@@ -47,18 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Smooth scroll for nav links ----
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        const offset = 80;
-        const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    });
-  });
 
   // ---- Reveal on scroll ----
   const reveals = document.querySelectorAll('.reveal');
@@ -217,36 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sectionLabels.forEach(label => counterObserver.observe(label));
 
-  // ---- Keyboard Navigation ----
-  const allSections = Array.from(document.querySelectorAll('section[id]'));
-  let currentSectionIndex = 0;
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      e.preventDefault();
-
-      // Find which section is closest to current scroll
-      const scrollY = window.scrollY + window.innerHeight / 3;
-      currentSectionIndex = allSections.findIndex((s, i) => {
-        const next = allSections[i + 1];
-        return scrollY >= s.offsetTop && (!next || scrollY < next.offsetTop);
-      });
-
-      if (e.key === 'ArrowDown' && currentSectionIndex < allSections.length - 1) {
-        currentSectionIndex++;
-      } else if (e.key === 'ArrowUp' && currentSectionIndex > 0) {
-        currentSectionIndex--;
-      }
-
-      const target = allSections[currentSectionIndex];
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
-    }
-  });
 
   // ---- PDF Export ----
   const pdfBtn = document.getElementById('downloadPdf');
