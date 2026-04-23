@@ -218,22 +218,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Hide keyboard hint on scroll ----
-  const keyboardHint = document.getElementById('keyboardHint');
-  let hintTimeout;
-  if (keyboardHint) {
-    hintTimeout = setTimeout(() => {
-      keyboardHint.style.opacity = '0';
-      keyboardHint.style.transition = 'opacity 0.5s ease';
-    }, 10000);
-
-    window.addEventListener('scroll', () => {
-      if (keyboardHint.style.opacity !== '0') {
-        keyboardHint.style.opacity = '0';
-        keyboardHint.style.transition = 'opacity 0.5s ease';
-        clearTimeout(hintTimeout);
+  // ---- On-Screen Section Navigation ----
+  const navUpBtn = document.getElementById('navUpBtn');
+  const navDownBtn = document.getElementById('navDownBtn');
+  const allSections = Array.from(document.querySelectorAll('section[id]'));
+  
+  if (navUpBtn && navDownBtn) {
+    const scrollToNext = (direction) => {
+      const scrollY = window.scrollY + window.innerHeight / 3;
+      let currentIndex = allSections.findIndex((s, i) => {
+        const next = allSections[i + 1];
+        return scrollY >= s.offsetTop && (!next || scrollY < next.offsetTop);
+      });
+      
+      if (direction === 1 && currentIndex < allSections.length - 1) {
+        currentIndex++;
+      } else if (direction === -1 && currentIndex > 0) {
+        currentIndex--;
       }
-    }, { once: true, passive: true });
+      
+      const target = allSections[currentIndex];
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    navUpBtn.addEventListener('click', () => scrollToNext(-1));
+    navDownBtn.addEventListener('click', () => scrollToNext(1));
   }
 
   // ---- Custom Cursor ----
