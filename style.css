@@ -1400,7 +1400,12 @@ ul { list-style: none; }
   border: 1px solid rgba(255, 90, 31, 0.3);
   color: rgba(255, 245, 240, 0.5);
   margin-bottom: 1.5rem;
-  animation: fadeUp 1s var(--ease-out) 0.1s both;
+  animation: fadeUp 1s var(--ease-out) 0.1s both, versionGlow 4s ease-in-out 2s infinite;
+}
+
+@keyframes versionGlow {
+  0%, 100% { border-color: rgba(255, 90, 31, 0.3); box-shadow: 0 0 0 0 rgba(255, 90, 31, 0); }
+  50% { border-color: rgba(255, 90, 31, 0.6); box-shadow: 0 0 12px 0 rgba(255, 90, 31, 0.15); }
 }
 
 .hero__particles {
